@@ -87,8 +87,8 @@ function WidgetForm() {
             </Popover.Button>
           </header>
           <div className="my-4 w-full flex flex-col items-center">
-            <Success className="w-full"/>
-            <span className="text-[#FFFFFF] py-2 text-md ">Agradecemos o feedback!</span>
+            <Success />
+            <span className="text-[#FFFFFF] py-2 text-md">Agradecemos o feedback!</span>
             <button
               type="submit"
               className="bg-zinc-800 text-white p-2 h-10 my-4 rounded-md border-transparent hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-900  focus:ring-zinc-700 flex-1 flex justify-center items-center text-sm transition-colors duration-300" 

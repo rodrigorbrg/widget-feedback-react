@@ -25,20 +25,16 @@ function SnapButton({
     setLoading(false);
   }
 
-  const clearImage = () => {
-    setScreenShot(null);
-  }
-
   if(screenShot) {
     return (
       <button 
         type="button"
-        onClick={clearImage}
+        onClick={() => setScreenShot(null)}
         className="p-1 w-10 h-10 rounded-md border-transparent flex justify-end items-end text-zinc-400 hover:text-zinc-100  transition-colors"
         style={{
           backgroundImage: `url(${screenShot})`,
           backgroundPosition: 'right bottom',
-          backgroundSize: 100,
+          backgroundSize: 180,
         }}
       >
         <Trash weight='fill'></Trash>
