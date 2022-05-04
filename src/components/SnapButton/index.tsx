@@ -1,0 +1,1 @@
+export { default } from './snap_button_view';
