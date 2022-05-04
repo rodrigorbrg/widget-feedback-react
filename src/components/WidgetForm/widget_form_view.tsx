@@ -66,7 +66,7 @@ function WidgetForm() {
             </Popover.Button>
           </header>
           <form className="my-4 w-full">
-            <textarea 
+            <textarea
               value={feedBack} 
               onChange={(event) => {setFeedBack(event.target.value)}} 
               className="min-w-[304px] py-3 px-2 w-full min-h-[112px] text-sm placeholder-zinc-400 text-zinc-100 border-2 border-zinc-600 focus:border-brand-500 focus:ring-1 focus:ring-brand-500 resize-none focus:outline-none bg-transparent rounded-md" 
@@ -86,13 +86,13 @@ function WidgetForm() {
               <X weight='bold' className="w-4 h-4"/>
             </Popover.Button>
           </header>
-          <div className="my-4 w-full flex flex-col items-center">
+          <div className="flex flex-col items-center py-10 w-[304px]">
             <Success />
-            <span className="text-[#FFFFFF] py-2 text-md">Agradecemos o feedback!</span>
+            <span className="text-[#FFFFFF] mt-2 text-md">Agradecemos o feedback!</span>
             <button
               type="submit"
-              className="bg-zinc-800 text-white p-2 h-10 my-4 rounded-md border-transparent hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-900  focus:ring-zinc-700 flex-1 flex justify-center items-center text-sm transition-colors duration-300" 
-              onClick={() => { setFeedBackType(null), setFeedBack(''), setScreenShot(null) }}
+              className="bg-zinc-800 text-white text-sm py-2 px-6 mt-6 rounded-md border-transparent hover:bg-zinc-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-zinc-900  focus:ring-zinc-700 transition-colors duration-300" 
+              onClick={() => { setFeedBackType(null), setFeedBack(''), setScreenShot(null), setDone(false) }}
             >Quero enviar outro</button>
           </div>
         </>
