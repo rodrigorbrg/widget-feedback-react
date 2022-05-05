@@ -1,4 +1,4 @@
-import { SVGProps, useCallback, useState } from 'react';
+import { FormEvent, SVGProps, useCallback, useState } from 'react';
 import { Popover } from '@headlessui/react';
 import { ArrowLeft, X } from 'phosphor-react';
 
@@ -9,6 +9,7 @@ import Thought from "../../assets/Thought";
 import Button from '../Button';
 import SnapButton from '../SnapButton';
 import Success from '../../assets/Success';
+import Api from '../../service/Api';
 
 type TypeFeedback =  'BUG' | 'IDEA' | 'THOUGHT';
 
@@ -32,6 +33,20 @@ function WidgetForm() {
   const [feedBack, setFeedBack] = useState< string>('');
   const [screenShot, setScreenShot] = useState<null | string>(null);
   const [done, setDone] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const send = async (event: FormEvent) => {
+    event.preventDefault();
+    const body = {
+      comment: feedBack,
+      type: feedBackType,
+      screenshot: screenShot,
+    };
+    setLoading(true);
+    await Api().createFeedback(body);
+    setLoading(false);
+    setDone(true);
+  }
 
   const getStep = useCallback(() => {
     if (!feedBackType) {
@@ -73,7 +88,7 @@ function WidgetForm() {
               placeholder='Conte com detalhes'/>
             <footer className="flex gap-2 mt-2">
               <SnapButton screenShot={screenShot} setScreenShot={setScreenShot}  />
-              <Button text="Enviar feedback" onPress={() => {setDone(true)}} loading={false} disabled={!feedBack} />
+              <Button text="Enviar feedback" onPress={send} loading={loading} disabled={!feedBack} />
             </footer>
           </form>
         </>

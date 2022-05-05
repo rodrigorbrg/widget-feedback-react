@@ -1,3 +1,5 @@
+import Loading from "../Loading";
+
 interface ButtonProps {
   text: string;
   onPress: () => void;
@@ -23,7 +25,11 @@ function Button({
         onClick={onPress}
         disabled={disabled}
       >
-      {text}
+      { loading ? 
+        <Loading/>
+        :
+        text
+      }
     </button>
   )
 }
