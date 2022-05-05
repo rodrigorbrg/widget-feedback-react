@@ -1,8 +1,9 @@
+import { FormEvent } from "react";
 import Loading from "../Loading";
 
 interface ButtonProps {
   text: string;
-  onPress: () => void;
+  onPress: (event: FormEvent) => void;
   theme?: 'light' | 'dark';
   color?: 'primary' | 'secondary';
   loading?: boolean;
