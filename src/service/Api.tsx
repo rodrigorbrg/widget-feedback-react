@@ -3,7 +3,7 @@ export default function() {
   defaultHeaders.append("Content-Type", "application/json");
 
   const createFeedback = async (body: any) => {
-    const response = await fetch('http://192.168.15.65:3333/feedback', {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/feedback`, {
       method: 'POST',
       headers: defaultHeaders,
       body: JSON.stringify(body),
